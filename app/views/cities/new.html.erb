@@ -1,0 +1,22 @@
+<h1 class="text-center">Add City</h1>
+<div class="text-center">
+	<%= form_for :city, url: cities_path do |f| %>
+		<p>
+			<%= f.label :name %><br>
+			<%= f.text_field :name %>
+		</p>
+
+		<p>
+			<%= f.label :country %><br>
+			<%= f.text_field :country %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+</div>
+<br>
+<div class="text-center">
+	<%= link_to "Back", "/" %>
+</div>

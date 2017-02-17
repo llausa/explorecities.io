@@ -1,0 +1,30 @@
+<h1><%= @city.name %></h1>
+<small><%= @city.country %></small>
+<br>
+<%= link_to "Home", "/" %>
+<hr>
+
+<h2>Experiences</h2>
+<% @city.experiences.each do |experience| %>
+	<div>
+		<p><%= experience.title %>: <%= experience.description %></p>
+		<!-- <%= link_to('see more', 'experiences#show') %> -->
+	</div>
+<% end %>
+
+<h2>Add Experience</h2>
+<%= form_for([@city, @city.experiences.build]) do |f| %>
+	<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :description %><br>
+		<%= f.text_field :description %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
