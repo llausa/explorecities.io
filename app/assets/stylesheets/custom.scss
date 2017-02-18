@@ -1,0 +1,221 @@
+/* Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/ */
+
+@import "normalize";
+
+/* universal */ 
+
+font-size {
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, em, span {
+	font-family: 'Permanent Marker', cursive;
+	color: black;
+}
+
+.fa {
+	color: black;
+}
+
+#hr_style {
+	margin: 0;
+	border-top: 1px solid black;
+}
+
+input[type=text], input[type=email], input[type=password] {
+	font-family: 'Permanent Marker', cursive;
+	color: black;
+}
+
+/* header */
+
+#header_jumbotron {
+	margin: 0;
+}
+
+header {
+	height: 25em;
+	background-image: url("https://media.giphy.com/media/CWTPd8gp87zlS/giphy.gif");
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+    .fa {
+    	color: white;
+    }
+}
+
+#header_text {
+	padding-top: 5em;
+	color: white;
+	font-family: 'Permanent Marker', cursive;
+}
+
+#looking-glass {
+	margin-right: .5em;
+}
+
+input {
+	border: none;
+	border-bottom: 3.5px solid white;
+	font-family: 'Permanent Marker', cursive;
+	background: transparent;
+	width: 8em;
+}
+
+#input {
+	color: white;
+	width: 8em;
+	font-size: 1.75em;
+
+}
+
+#input_button {
+	color: white;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.75em;
+	background: transparent;
+	border-bottom: 3.5px solid white;
+	width: 4em;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+
+/* nav style */
+
+#nav_style {
+	background-color: black;
+}
+
+.nav-link {
+	margin-bottom: 0;
+}
+
+#toggler_style {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+/* city style */
+
+#city_style {
+	font-family: 'Permanent Marker', cursive;
+	padding: 2em;
+	padding-top: 3em;
+	color: black;
+	a {
+		color: black;
+		text-decoration: none;
+	}
+	h2 {
+		margin-bottom: 0;
+	}
+}
+
+/* experiences style */
+
+#experience_block {
+	border-bottom: 1px solid black;
+}
+
+#row_1 {
+	height: 8em;
+}
+
+#rank_style {
+	font-size: 2em;
+	margin-top: 1.35em;
+	padding: 0;
+}
+
+#counter_style {
+	margin-top: 2em;
+	padding: 0;
+}
+
+#counter_number {
+	margin: 0;
+}
+
+#experience_words {
+	font-family: 'Permanent Marker', cursive;
+	padding: 1em;
+}
+
+#experience_title_style {
+	margin: 0;
+	font-size: 1.5em;
+}
+
+#experience_desc_style {
+	margin: 0;
+}
+
+#category_style {
+	margin-top: 3em;
+}
+
+/* ADs */
+
+#ad_block {
+	border-bottom: 1px solid black;
+	height: 4em;
+}
+
+#ad_alert {
+	margin-top: 1em;
+
+}
+
+#ad_text {
+	margin-top: 1em;
+}
+
+/* pagination */
+
+#pagination_style {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	a {
+		color: black;
+		text-decoration: none;
+	}
+}
+
+/* footer */
+
+#footer_style {
+	background-color: black;
+	font-size: 1em;
+	color: white;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+#copyright {
+	margin-bottom: 0;
+	color: white;	
+}
+
+/* modals */
+
+.modal {
+	font-family: 'Permanent Marker', cursive;
+}
+
+#login_modal {
+	
+	
+}
+
+#help_modal {
+	color: black;
+}
+
+#contact_modal {
+	color: black;
+}
+

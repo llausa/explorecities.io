@@ -1,0 +1,9 @@
+<div>
+	<h2>Delete Cities</h2>
+
+	<%= form_for(@city, :url => city_path(@city)), :method => 'delete' do |f| %>
+		<p>Are you sure you permanently want to delete this city?</p>
+		<p><%= f.object.name %></p>
+		<%= f.submit("Delete City") %>
+	<% end %>
+</div>

@@ -1,16 +1,93 @@
-<h1><%= @city.name %></h1>
-<small><%= @city.country %></small>
-<br>
-<%= link_to "Home", "/" %>
-<hr>
+<div class="container-fluid text-center" id="city_style">
+	<h2><%= @city.name %></h2>
+    <small class="text-muted"><%= @city.country %></small>
+    <br>
+	<a href="#" type="button" data-toggle="modal" data-target="#experience_modal">Post an Experience</a>
+            <div class="modal fade" id="experience_modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Post an Experience</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="exp-title-input" class="col-3 col-form-label">Title:</label>
+                                    <div class="col-9">
+                                        <input class="form-control" type="text" id="exp-title-input">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exp-desc-input" class="col-3 col-form-label">Description:</label>
+                                    <div class="col-9">
+                                        <input class="form-control" type="text" id="contact-desc-input">
+                                    </div>
+                                </div>
 
-<h2>Experiences</h2>
-<% @city.experiences.each do |experience| %>
-	<div>
-		<p><%= experience.title %>: <%= experience.description %></p>
-		<!-- <%= link_to('see more', 'experiences#show') %> -->
-	</div>
-<% end %>
+                                <div class="form-group row offset-3">
+                                	<div class="form-check form-check-inline">
+  										<label class="form-check-label col-3">
+    										<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"><i class="fa fa-cutlery" aria-hidden="true"></i>
+  										</label>
+									</div>
+									<div class="form-check form-check-inline">
+  										<label class="form-check-label col-3">
+    										<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"><i class="fa fa-tree" aria-hidden="true"></i>
+  										</label>
+									</div>
+									<div class="form-check form-check-inline">
+  										<label class="form-check-label col-3">
+    										<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"><i class="fa fa-glass" aria-hidden="true"></i>
+  										</label>
+									</div>
+									<div class="form-check form-check-inline">
+  										<label class="form-check-label col-3">
+    										<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4"><i class="fa fa-camera" aria-hidden="true"></i>
+  										</label>
+									</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+<hr id="hr_style">
+
+
+<div class="container-fluid">
+    <% @city.experiences.each do |experience| %>
+    <div class="row text-center" id="experience_block">
+        <div class="col-1">
+            <div class="row" id="row_1">
+                <div class="col-6" id="rank_style">
+                    <p>1</p>
+                </div>
+                <div class="col-6" id="counter_style">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    <div>
+                        <p id="counter_number">100</p>
+                    </div>
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-10" id="experience_words">
+            <p class="text-left" id="experience_title_style"><%= experience.title %></p>
+            <p class="text-left" id="experience_desc_style" maxlength="50"><%= experience.description %></p>
+        </div>
+        <div class="col-1" id="category_style">
+            <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+
 
 <h2>Add Experience</h2>
 <%= form_for([@city, @city.experiences.build]) do |f| %>
