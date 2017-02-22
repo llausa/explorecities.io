@@ -13,20 +13,24 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <%= form_for([@city, @city.experiences.build]) do |f| %>
                                 <div class="form-group row">
-                                    <label for="exp-title-input" class="col-3 col-form-label">Title:</label>
+                                    <%= f.label :title, :class => "col-3 col-form-label" %></label>
                                     <div class="col-9">
-                                        <input class="form-control" type="text" id="exp-title-input">
+                                        <%= f.text_field :title, :id => "exp-title-input" %>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="exp-desc-input" class="col-3 col-form-label">Description:</label>
+                                    <%= f.label :description, :class => "col-3 col-form-label" %>
                                     <div class="col-9">
-                                        <input class="form-control" type="text" id="contact-desc-input">
+                                        <%= f.text_field :description, :id => "exp-desc-input" %>
                                     </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <%= f.submit 'Post Experience', :class => "btn post_exp_submit" %>
                                 </div>
 
+                                <!--
                                 <div class="form-group row offset-3">
                                 	<div class="form-check form-check-inline">
   										<label class="form-check-label col-3">
@@ -49,7 +53,8 @@
   										</label>
 									</div>
                                 </div>
-                            </form>
+                                -->
+                            <% end %>
                         </div>
                     </div>
                 </div>
@@ -60,47 +65,35 @@
 
 
 <div class="container-fluid">
-    <% @city.experiences.each do |experience| %>
-    <div class="row text-center" id="experience_block">
-        <div class="col-1">
-            <div class="row" id="row_1">
-                <div class="col-6" id="rank_style">
-                    <p>1</p>
-                </div>
-                <div class="col-6" id="counter_style">
-                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                    <div>
-                        <p id="counter_number">100</p>
+    <% if Experience.where(city_id: @city.id).blank? %>
+        <div class="text-center" id="no_exp">
+            <p>There are no experiences yet. Be the first one to post one!</p>
+        </div>
+    <% else %>
+        <% @city.experiences.limit(10).each do |experience| %>
+        <div class="row text-center" id="experience_block">
+            <div class="col-1">
+                <div class="row" id="row_1">
+                    <div class="col-6" id="rank_style">
+                        <p>1</p>
                     </div>
-                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <div class="col-6" id="counter_style">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        <div>
+                            <p id="counter_number">100</p>
+                        </div>
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
+            <div class="col-10" id="experience_words">
+                <p class="text-left" id="experience_title_style"><%= experience.title %></p>
+                <p class="text-left" id="experience_desc_style" maxlength="50"><%= experience.description %></p>
+            </div>
+            <div class="col-1" id="category_style">
+                <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+            </div>
         </div>
-        <div class="col-10" id="experience_words">
-            <p class="text-left" id="experience_title_style"><%= experience.title %></p>
-            <p class="text-left" id="experience_desc_style" maxlength="50"><%= experience.description %></p>
-        </div>
-        <div class="col-1" id="category_style">
-            <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
-        </div>
-    </div>
+        <% end %>
     <% end %>
 </div>
-
-
-<h2>Add Experience</h2>
-<%= form_for([@city, @city.experiences.build]) do |f| %>
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
-
-	<p>
-		<%= f.label :description %><br>
-		<%= f.text_field :description %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>

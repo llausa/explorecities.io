@@ -155,6 +155,29 @@ input {
 #category_style {
 	margin-top: 3em;
 }
+	/* post experience modal */
+#exp-title-input {
+	border-bottom: 2px solid black;
+	width: 100%;
+}
+
+#exp-desc-input {
+	border-bottom: 2px solid black;
+	width: 100%;
+}
+
+.post_exp_submit {
+	color: white;
+	background-color: black;
+	font-family: 'Permanent Marker', cursive;
+	width: 50%;
+}
+
+#no_exp {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	width: 100%;
+}
 
 /* ADs */
 

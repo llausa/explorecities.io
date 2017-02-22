@@ -5,7 +5,7 @@
 		<!-- <input type="string" name="search" id="input"> -->
 		<%= form_tag(cities_path, :method => "get", id: "search-form") do %>
 			<i class="fa fa-search fa-2x" aria-hidden="true" id="looking-glass"></i>
-			<%= text_field_tag :search, params[:search], placeholder: "Search Cities", :id => 'input' %>
+			<%= text_field_tag :search, params[:search], placeholder: "Search Cities", :id => 'input', :required => true %>
 			<%= submit_tag "Go", :id => 'input_button' %>
 		<% end %>
 	</div>

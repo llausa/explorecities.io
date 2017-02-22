@@ -14,6 +14,7 @@
 	
 	<% puts "doing list" %>
 	<% if params[:search] %>
+		<% puts "#{params[:search]}" %>
 		<% @cities.each do |city| %>
 			<h3><%= city.name %></h3>
 			<p><%= city.country %></p>
