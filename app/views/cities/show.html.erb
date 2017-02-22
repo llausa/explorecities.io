@@ -67,7 +67,7 @@
 <div class="container-fluid">
     <% if Experience.where(city_id: @city.id).blank? %>
         <div class="text-center" id="no_exp">
-            <p>There are no experiences yet. Be the first one to post one!</p>
+            <p>There are no experiences yet. Be the first to post one!</p>
         </div>
     <% else %>
         <% @city.experiences.limit(10).each do |experience| %>
@@ -75,12 +75,12 @@
             <div class="col-1">
                 <div class="row" id="row_1">
                     <div class="col-6" id="rank_style">
-                        <p>1</p>
+                        <p><%= experience.rank %></p>
                     </div>
                     <div class="col-6" id="counter_style">
                         <i class="fa fa-arrow-up" aria-hidden="true"></i>
                         <div>
-                            <p id="counter_number">100</p>
+                            <p id="counter_number"><%= experience.votes %></p>
                         </div>
                         <i class="fa fa-arrow-down" aria-hidden="true"></i>
                     </div>
@@ -91,7 +91,8 @@
                 <p class="text-left" id="experience_desc_style" maxlength="50"><%= experience.description %></p>
             </div>
             <div class="col-1" id="category_style">
-                <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+                <!--<i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>-->
+                <%= experience.category %>
             </div>
         </div>
         <% end %>

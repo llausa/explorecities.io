@@ -10,6 +10,8 @@ gem 'coffee-rails',   '4.2.1'
 gem 'jquery-rails',   '4.1.1'
 gem 'turbolinks',     '5.0.1'
 gem 'jbuilder',       '2.4.1'
+gem 'will_paginate', '~> 3.1.0'
+gem 'friendly_id', '~> 5.1'
 
 
 group :development, :test do

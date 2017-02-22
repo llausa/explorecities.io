@@ -12,7 +12,7 @@ class CitiesController < ApplicationController
 	end
 
 	def show
-		@city = City.find(params[:id])
+		@city = City.friendly.find(params[:id])
 	end
 
 	def new
@@ -30,6 +30,6 @@ class CitiesController < ApplicationController
 	private
 
 	def city_params
-		params.require(:city).permit(:name, :country)
+		params.require(:city).permit(:name, :country, :slug)
 	end
 end
