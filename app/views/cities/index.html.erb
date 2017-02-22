@@ -1,18 +1,37 @@
-<h1 class="text-center">Search Results</h1>
 
 <div class="text-center">
 	<% if @cities.present? %>
 		<% render @cities %>
+		<% puts "rendered cities" %>
 	<% else %>
-		<p>We don't have <%= params[:search] %> available yet.</p>
-		<p>Click New City below to add <%= params[:search] %> to our list.</p>
-		<%= link_to "New City", new_city_path %>
+		<p><%= params[:search] %> was not found.</p>
+		<p>We don't have elastic search yet so we have some trouble with misspelling.</p>
+		<p>Please check the spelling of your search term or have a look at our list of cities.</p>
+		<%= link_to "Cities List", '/cities' %>
 	<% end %>
 </div>
-<div class="text-center">
-	<% @cities.each do |city| %>
-		<h3><%= city.name %></h3>
-		<p><%= city.country %></p>
-		<%= link_to "See More", city_path(city) %>
+<div class="container-fluid text-center">
+	
+	<% puts "doing list" %>
+	<% if params[:search] %>
+		<% @cities.each do |city| %>
+			<h3><%= city.name %></h3>
+			<p><%= city.country %></p>
+			<%= link_to "See More", city_path(city) %>
+		<% end %>
+	<% else %>
+		<table>
+		<% @cities.in_groups_of(3) do |row_cities| %>
+			<tr>	
+				<% row_cities.each do |city| %>		
+					<td>
+						<h3><%= city.name %></h3>
+						<p><%= city.country %></p>
+						<%= link_to "See More", city_path(city) %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+		</table>
 	<% end %>
 </div>

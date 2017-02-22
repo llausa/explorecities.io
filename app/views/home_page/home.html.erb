@@ -2,9 +2,17 @@
 	<p>Synth chillwave echo park, whatever mustache polaroid meditation authentic kinfolk locavore vinyl sartorial typewriter ugh. Marfa locavore letterpress pour-over retro. Banjo vinyl copper mug gochujang, woke selfies pop-up yuccie. Retro selvage paleo wayfarers four dollar toast tumeric portland gochujang, godard drinking vinegar occupy single-origin coffee vape.</p>
 </div>
 <div class="container-fluid text-center">
-	<% @cities.each do |city| %>
-		<h3><%= city.name %></h3>
-		<p><%= city.country %></p>
-		<%= link_to "See More", city_path(city) %>
+	<table>
+	<% @cities.in_groups_of(3) do |row_cities| %>
+		<tr>	
+			<% row_cities.each do |city| %>		
+				<td>
+					<h3><%= city.name %></h3>
+					<p><%= city.country %></p>
+					<%= link_to "See More", city_path(city) %>
+				</td>
+			<% end %>
+		</tr>
 	<% end %>
+	</table>
 </div>
