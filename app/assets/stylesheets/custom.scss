@@ -229,17 +229,15 @@ input {
 	font-family: 'Permanent Marker', cursive;
 }
 
-#login_modal {
-	
-	
-}
-
 #help_modal {
 	color: black;
 }
 
 #contact_modal {
 	color: black;
+	a {
+		color: blue;
+	}
 }
 
 /* signup */ 
