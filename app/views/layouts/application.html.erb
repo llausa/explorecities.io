@@ -12,11 +12,13 @@
     <%= render 'layouts/header' %>
     <%= render 'layouts/nav' %>
     
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <div class="container-fluid text-center">
+      <% if notice %>
+        <p class="notice" id="flash_notice"><%= notice %></p>
+      <% elsif alert %>
+        <p class="alert" id="flash_notice"><%= alert %></p>
+      <% end %>
+    </div>
 
     <div>
       <%= yield %>  
