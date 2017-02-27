@@ -242,3 +242,38 @@ input {
 	color: black;
 }
 
+/* signup */ 
+
+#signup_input {
+	width: 50%;
+	border-bottom: 2px solid black;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.signup_submit {
+	color: white;
+	background-color: black;
+	font-family: 'Permanent Marker', cursive;
+	width: 50%;
+	margin-top: 1em;
+}
+
+#login_input {
+	width: 50%;
+	border-bottom: 2px solid black;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#login_checkbox {
+	width: 1em;
+}
+
+.log_in_submit {
+	color: white;
+	background-color: black;
+	font-family: 'Permanent Marker', cursive;
+	width: 50%;
+	margin-top: .5em;
+}

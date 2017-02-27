@@ -13,6 +13,8 @@ class CitiesController < ApplicationController
 
 	def show
 		@city = City.friendly.find(params[:id])
+		@experiences = Experience.where(city_id: params[:id]).page(params[:page]).per_page(5)
+		
 	end
 
 	def new

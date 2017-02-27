@@ -70,7 +70,7 @@
             <p>There are no experiences yet. Be the first to post one!</p>
         </div>
     <% else %>
-        <% @city.experiences.limit(10).each do |experience| %>
+        <% @city.experiences.each do |experience| %>
         <div class="row text-center" id="experience_block">
             <div class="col-1">
                 <div class="row" id="row_1">
@@ -96,5 +96,7 @@
             </div>
         </div>
         <% end %>
+        <%= will_paginate @experiences %>    
     <% end %>
 </div>
+
