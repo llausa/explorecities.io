@@ -71,35 +71,36 @@
         </div>
     <% else %>
         <% @city.experiences.order('votes desc').each do |experience| %>
+            
+            <div class="row text-center" id="experience_block">
+                <div class="col-1">
+                    <div class="row" id="row_1">
+                        <div class="col-6" id="rank_style">
+                            <p><%= experience.id %></p>
+                            
+                        </div>
+                        <div class="col-6" id="counter_style">
+                            <% if experience.votes.blank? %>
 
-        <div class="row text-center" id="experience_block">
-            <div class="col-1">
-                <div class="row" id="row_1">
-                    <div class="col-6" id="rank_style">
-                        <p><%= experience.rank %></p>
-                    </div>
-                    <div class="col-6" id="counter_style">
-                        <% if experience.votes.blank? %>
-
-                        <% else %>
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                            <div>
-                                <p id="counter_number"><%= experience.votes %></p>
-                            </div>
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        <% end %>
+                            <% else %>
+                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                <div>
+                                    <p id="counter_number"><%= experience.votes %></p>
+                                </div>
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
+                <div class="col-10" id="experience_words">
+                    <p class="text-left" id="experience_title_style"><%= experience.title %></p>
+                    <p class="text-left" id="experience_desc_style" maxlength="50"><%= experience.description %></p>
+                </div>
+                <div class="col-1" id="category_style">
+                    <!--<i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>-->
+                    <%= experience.category %>
+                </div>
             </div>
-            <div class="col-10" id="experience_words">
-                <p class="text-left" id="experience_title_style"><%= experience.title %></p>
-                <p class="text-left" id="experience_desc_style" maxlength="50"><%= experience.description %></p>
-            </div>
-            <div class="col-1" id="category_style">
-                <!--<i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>-->
-                <%= experience.category %>
-            </div>
-        </div>
         <% end %>
             
     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301014311) do
+ActiveRecord::Schema.define(version: 20170301031251) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170301014311) do
     t.integer  "category"
     t.integer  "votes"
     t.integer  "rank"
+    t.integer  "position"
     t.index ["city_id"], name: "index_experiences_on_city_id"
   end
 
