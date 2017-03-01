@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   		resources :experiences
   	end
 
-  	#get '/cities/new', to: 'home_page#home'
+  	
 end
