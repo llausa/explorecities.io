@@ -6,13 +6,13 @@ class ExperiencesController < ApplicationController
 	end
 	
 	def create
-		@city = City.find(params[:city_id])
+		@city = City.friendly.find(params[:city_id])
 		@experience = @city.experiences.create(experience_params)
 		redirect_to city_path(@city)
 	end
 
 	def show
-		@city = City.find(params[:city_id])
+		@city = City.friendly.find(params[:id])
 		@experience = @city.experiences.find(experience_params)
 	end
 
