@@ -17,13 +17,13 @@
                                 <div class="form-group row">
                                     <%= f.label :title, :class => "col-3 col-form-label" %></label>
                                     <div class="col-9">
-                                        <%= f.text_field :title, :id => "exp-title-input" %>
+                                        <%= f.text_field :title, :id => "exp-title-input", :required => true %>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <%= f.label :description, :class => "col-3 col-form-label" %>
                                     <div class="col-9">
-                                        <%= f.text_field :description, :id => "exp-desc-input" %>
+                                        <%= f.text_field :description, :id => "exp-desc-input", :required => true %>
                                     </div>
                                 </div>
                                 <div class="form-group text-center">
@@ -70,7 +70,8 @@
             <p>There are no experiences yet. Be the first to post one!</p>
         </div>
     <% else %>
-        <% @city.experiences.each do |experience| %>
+        <% @city.experiences.order('votes desc').each do |experience| %>
+
         <div class="row text-center" id="experience_block">
             <div class="col-1">
                 <div class="row" id="row_1">
@@ -78,11 +79,15 @@
                         <p><%= experience.rank %></p>
                     </div>
                     <div class="col-6" id="counter_style">
-                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                        <div>
-                            <p id="counter_number"><%= experience.votes %></p>
-                        </div>
-                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        <% if experience.votes.blank? %>
+
+                        <% else %>
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                            <div>
+                                <p id="counter_number"><%= experience.votes %></p>
+                            </div>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -96,7 +101,7 @@
             </div>
         </div>
         <% end %>
-        <%= will_paginate @experiences %>    
+            
     <% end %>
 </div>
 
