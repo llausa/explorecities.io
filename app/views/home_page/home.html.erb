@@ -2,17 +2,17 @@
 	<p>Welcome intrepid adventurer to explorecities.io! Ever feel bored in your own home city? Ever get some new place and find absolutely nothing to do on Trip Advisor and so on? Maybe you want to avoid the tourist traps this time. Never fear my friends! This is a project where people around the world share cool Experiences in cities around the world. To see the full potential of this project have a look at <%= link_to "Brisbane", '/cities/brisbane' %>, the developer's Home City. The world is beautiful and full of wonder, let's start sharing!</p>
 </div>
 <div class="container-fluid text-center">
-	<table>
-	<% @cities.in_groups_of(3) do |row_cities| %>
-		<tr>	
-			<% row_cities.each do |city| %>		
-				<td>
-					<h3><%= city.name %></h3>
-					<p><%= city.country %></p>
-					<%= link_to "See More", city_path(city) %>
-				</td>
-			<% end %>
-		</tr>
-	<% end %>
-	</table>
+    <table>
+    <% @cities.in_groups_of(3,false) do |row_cities| %>
+        <tr>    
+            <% row_cities.each_with_index do |city,index| %>
+                <td>
+                    <h3><%= city.name %></h3>
+                    <p><%= city.country %></p>
+                    <%= link_to "See More", city_path(city) %>
+                </td>
+            <% end %>
+        </tr>
+    <% end %>
+    </table>
 </div>
