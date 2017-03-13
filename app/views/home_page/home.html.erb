@@ -7,9 +7,11 @@
 		<tr>	
 			<% row_cities.each do |city| %>		
 				<td>
-					<h3><%= city.name if city.name %></h3>
-					<p><%= city.country %></p>
-					<%= link_to "See More", city_path(city) %>
+					<% if city.name %>
+						<h3><%= city.name if city.name %></h3>
+						<p><%= city.country %></p>
+						<%= link_to "See More", city_path(city) %>
+					<% end %>
 				</td>
 			<% end %>
 		</tr>
