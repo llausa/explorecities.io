@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :search]
 
 	def index
 		@cities = City.all
